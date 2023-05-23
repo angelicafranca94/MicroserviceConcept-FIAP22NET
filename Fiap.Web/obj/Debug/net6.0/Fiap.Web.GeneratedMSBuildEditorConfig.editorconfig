@@ -1,0 +1,60 @@
+is_global = true
+build_property.TargetFramework = net6.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = Fiap.Web
+build_property.RootNamespace = Fiap.Web
+build_property.ProjectDir = D:\MicroserviceConcept-FIAP22NET\Fiap.Web\
+build_property.RazorLangVersion = 6.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = D:\MicroserviceConcept-FIAP22NET\Fiap.Web
+build_property._RazorSourceGeneratorDebug = 
+
+[D:/MicroserviceConcept-FIAP22NET/Fiap.Web/Views/Curso/CursoCreate.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3Vyc29cQ3Vyc29DcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/MicroserviceConcept-FIAP22NET/Fiap.Web/Views/Curso/CursoDelete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3Vyc29cQ3Vyc29EZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/MicroserviceConcept-FIAP22NET/Fiap.Web/Views/Curso/CursoEdit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3Vyc29cQ3Vyc29FZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/MicroserviceConcept-FIAP22NET/Fiap.Web/Views/Curso/CursoIndex.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3Vyc29cQ3Vyc29JbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/MicroserviceConcept-FIAP22NET/Fiap.Web/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/MicroserviceConcept-FIAP22NET/Fiap.Web/Views/Home/Privacy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/MicroserviceConcept-FIAP22NET/Fiap.Web/Views/Shared/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/MicroserviceConcept-FIAP22NET/Fiap.Web/Views/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/MicroserviceConcept-FIAP22NET/Fiap.Web/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/MicroserviceConcept-FIAP22NET/Fiap.Web/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/MicroserviceConcept-FIAP22NET/Fiap.Web/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-50ww8je0qb

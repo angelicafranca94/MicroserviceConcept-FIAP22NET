@@ -1,0 +1,54 @@
+﻿@model IEnumerable<Fiap.Web.Models.CursoViewModel>
+
+<br />
+<br />
+<div class="container p-4 border">
+	<div class="row pb-2">
+		<div class="col">
+			<h1 class="text-primary">Lista de cursos</h1>
+		</div>
+		<div class="col text-end pt-1">
+			<a asp-action="CursoCreate" class="btn btn-outline-primary"><i class="fas fa-plus"></i> Adicionar curso </a>
+		</div>
+	</div>
+	<table class="table">
+		<thead>
+			<tr>
+				<th>
+					Nome
+				</th>
+				<th>
+					Categoria
+				</th>
+				<th>
+					Preço
+				</th>
+				<th></th>
+			</tr>
+		</thead>
+		<tbody>
+			@foreach (var item in Model)
+			{
+				<tr>
+					<td>
+						@item.Nome
+					</td>
+					<td>
+						@item.Categoria
+					</td>
+					<td>
+						@((item.Preco).ToString("c"))
+					</td>
+					<td>
+						<a asp-action="CursoEdit" class="btn btn-success" asp-route-cursoId="@item.CursoId">
+							<i class="fas fa-edit"></i>
+						</a>
+						<a asp-action="CursoDelete" class="btn btn-danger" asp-route-cursoId="@item.CursoId">
+							<i class="fas fa-trash"></i>
+						</a>
+					</td>
+				</tr>
+			}
+		</tbody>
+	</table>
+</div>

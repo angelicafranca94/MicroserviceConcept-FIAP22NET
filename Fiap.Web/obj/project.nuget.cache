@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "5riFd+qYPOgSyJDUeBQGdA6MIWJ+JqsztPs6ee0jotUEPoSZdPfIec2qnQI5Hja8KOQ+56LGodOJuPi/hPsELw==",
+  "success": true,
+  "projectFilePath": "D:\\MicroserviceConcept-FIAP22NET\\Fiap.Web\\Fiap.Web.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\logonrmlocal\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}
