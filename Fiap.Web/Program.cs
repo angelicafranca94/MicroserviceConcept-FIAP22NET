@@ -12,13 +12,35 @@ namespace Fiap.Web
 
             //HttpClient
             builder.Services.AddHttpClient<ICursoService, CursoService>();
-            SD.CursoAPIBase = "https://localhost:7282";
+            SD.CursoAPIBase = builder.Configuration["ServiceUrls:CursoAPI"];
 
             //Add Dependency Injection
             builder.Services.AddScoped<ICursoService, CursoService>();
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
+
+            // Adicionar configuração do authentication
+            builder.Services.AddAuthentication(options =>
+            {
+                options.DefaultScheme = "Cookies";
+                options.DefaultChallengeScheme = "oidc";
+            })
+                .AddCookie("Cookies", c => c.ExpireTimeSpan = TimeSpan.FromMinutes(10))
+                .AddOpenIdConnect("oidc", options =>
+                {
+                    options.RequireHttpsMetadata = false;
+                    options.Authority = builder.Configuration["ServiceUrls:IdentityAPI"];
+                    options.GetClaimsFromUserInfoEndpoint = true;
+                    options.ClientId = "fiap";
+                    options.ClientSecret = "secret";
+                    options.ResponseType = "code";
+                    options.TokenValidationParameters.NameClaimType = "name";
+                    options.TokenValidationParameters.RoleClaimType = "role";
+                    options.Scope.Add("fiap");
+                    options.SaveTokens = true;
+
+                });
 
             var app = builder.Build();
 
@@ -34,7 +56,7 @@ namespace Fiap.Web
             app.UseStaticFiles();
 
             app.UseRouting();
-
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.MapControllerRoute(

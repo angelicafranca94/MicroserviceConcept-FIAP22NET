@@ -1,5 +1,7 @@
 ﻿using Fiap.Web.Models;
 using Fiap.Web.Services.IServices;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Text.Json;
@@ -17,8 +19,8 @@ namespace Fiap.Web.Controllers
 		public async Task<IActionResult> CursoIndex()
 		{
 			List<CursoViewModel> list = new List<CursoViewModel>();
-			//var accessToken = await HttpContext.GetTokenAsync("access_token");
-			var response = await _cursoService.GetAllCursosAsync<ResponseViewModel>("");
+			var accessToken = await HttpContext.GetTokenAsync("access_token");
+			var response = await _cursoService.GetAllCursosAsync<ResponseViewModel>(accessToken);
 			if (response != null && response.IsSuccess)
 			{
 				list = JsonSerializer.Deserialize<List<CursoViewModel>>(Convert.ToString(response.Result));
@@ -37,7 +39,8 @@ namespace Fiap.Web.Controllers
 		{
 			if (ModelState.IsValid)
 			{
-				var response = await _cursoService.CreateCursoAsync<ResponseViewModel>(model, "");
+				var accessToken = await HttpContext.GetTokenAsync("access_token");
+				var response = await _cursoService.CreateCursoAsync<ResponseViewModel>(model, accessToken);
 				if (response != null && response.IsSuccess)
 				{
 					return RedirectToAction(nameof(CursoIndex));
@@ -48,8 +51,8 @@ namespace Fiap.Web.Controllers
 
 		public async Task<IActionResult> CursoEdit(int cursoId)
 		{
-			//var accessToken = await HttpContext.GetTokenAsync("access_token");
-			var response = await _cursoService.GetCursoByIdAsync<ResponseViewModel>(cursoId, "");
+			var accessToken = await HttpContext.GetTokenAsync("access_token");
+			var response = await _cursoService.GetCursoByIdAsync<ResponseViewModel>(cursoId, accessToken);
 			if (response != null && response.IsSuccess)
 			{
 				CursoViewModel model = JsonSerializer.Deserialize<CursoViewModel>(Convert.ToString(response.Result));
@@ -63,8 +66,8 @@ namespace Fiap.Web.Controllers
 		{
 			if (ModelState.IsValid)
 			{
-				// var accessToken = await HttpContext.GetTokenAsync("access_token");
-				var response = await _cursoService.UpdateCursoAsync<ResponseViewModel>(model, "");
+				var accessToken = await HttpContext.GetTokenAsync("access_token");
+				var response = await _cursoService.UpdateCursoAsync<ResponseViewModel>(model, accessToken);
 				if (response != null && response.IsSuccess)
 				{
 					return RedirectToAction(nameof(CursoIndex));
@@ -73,11 +76,11 @@ namespace Fiap.Web.Controllers
 			return View(model);
 		}
 
-		//[Authorize(Roles = "Admin")]
+		[Authorize(Roles = "Admin")]
 		public async Task<IActionResult> CursoDelete(int cursoId)
 		{
-			// var accessToken = await HttpContext.GetTokenAsync("access_token");
-			var response = await _cursoService.GetCursoByIdAsync<ResponseViewModel>(cursoId, "");
+			 var accessToken = await HttpContext.GetTokenAsync("access_token");
+			var response = await _cursoService.GetCursoByIdAsync<ResponseViewModel>(cursoId, accessToken);
 			if (response != null && response.IsSuccess)
 			{
 				CursoViewModel model = JsonSerializer.Deserialize<CursoViewModel>(Convert.ToString(response.Result));
@@ -87,12 +90,12 @@ namespace Fiap.Web.Controllers
 		}
 
 		[HttpPost]
-		// [Authorize(Roles = "Admin")]
+		[Authorize(Roles = "Admin")]
 		[ValidateAntiForgeryToken]
 		public async Task<IActionResult> CursoDelete(CursoViewModel model)
 		{
-			// var accessToken = await HttpContext.GetTokenAsync("access_token");
-			var response = await _cursoService.DeleteCursoAsync<ResponseViewModel>(model.CursoId, "");
+			var accessToken = await HttpContext.GetTokenAsync("access_token");
+			var response = await _cursoService.DeleteCursoAsync<ResponseViewModel>(model.CursoId, accessToken);
 			if (response.IsSuccess)
 			{
 				return RedirectToAction(nameof(CursoIndex));

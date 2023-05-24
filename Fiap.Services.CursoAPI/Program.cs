@@ -3,6 +3,8 @@ using AutoMapper;
 using Fiap.Services.CursoAPI.DbContexts;
 using Fiap.Services.CursoAPI.Repository;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
+using Microsoft.OpenApi.Models;
 
 namespace Fiap.Services.CursoAPI
 {
@@ -29,9 +31,63 @@ namespace Fiap.Services.CursoAPI
             builder.Services.AddScoped<ICursoRepository, CursoRepository>();
             
             builder.Services.AddControllers();
+
+
+            //Configuração do IdentityServer provedor do acess_token
+            builder.Services.AddAuthentication("Bearer")
+                .AddJwtBearer("Bearer", options =>
+                {  
+                    options.Authority = "http://localhost:5211/";
+                    options.TokenValidationParameters = new TokenValidationParameters
+                    {
+                        ValidateAudience = false
+                    };
+
+                });
+
+            builder.Services.AddAuthorization(options =>
+            {
+                options.AddPolicy("ApiScope", policy =>
+                {
+                    policy.RequireAuthenticatedUser();
+                    policy.RequireClaim("scope", "fiap");
+                });
+            });
+
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
-            builder.Services.AddSwaggerGen();
+
+            // Congifurar o security (token) na documentação do swagger
+            builder.Services.AddSwaggerGen(doc =>
+            {
+                doc.SwaggerDoc("v1", new OpenApiInfo { Title = "Fiap.Services.CursoAPI", Version = "v1" });
+                doc.EnableAnnotations();
+                doc.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
+                {
+                    Description = @"Entre com o formato 'Bearer' + [space] + e seu token",
+                    Name = "Authorization",
+                    In = ParameterLocation.Header,
+                    Type = SecuritySchemeType.ApiKey,
+                    Scheme = "Bearer"
+                });
+
+                doc.AddSecurityRequirement(new OpenApiSecurityRequirement {
+                    {
+                        new OpenApiSecurityScheme
+                        {
+                            Reference = new OpenApiReference
+                            {
+                                Type=ReferenceType.SecurityScheme,
+                                Id="Bearer"
+                            },
+                            Scheme="oauth2",
+                            Name="Bearer",
+                            In=ParameterLocation.Header
+                        },
+                        new List<string>()
+                    }
+                });
+            });
 
             var app = builder.Build();
 
@@ -39,11 +95,12 @@ namespace Fiap.Services.CursoAPI
             if (app.Environment.IsDevelopment())
             {
                 app.UseSwagger();
-                app.UseSwaggerUI();
+                app.UseSwaggerUI(doc => doc.SwaggerEndpoint("/swagger/v1/swagger.json", "Fiap.Services.CursoAPI v1"));
             }
 
+            app.UseRouting();
             app.UseHttpsRedirection();
-
+            app.UseAuthentication();
             app.UseAuthorization();
 
 

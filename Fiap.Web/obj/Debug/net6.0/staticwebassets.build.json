@@ -1,11 +1,23 @@
 {
   "Version": 1,
-  "Hash": "hPpjKe1ziTQRSDbUjlWnUO5/y/oD+nv8EKVssHcOiZo=",
+  "Hash": "j1IIf9JTsVubxtJ33pt/vKASVjXopBeSplPU+Z9wErU=",
   "Source": "Fiap.Web",
   "BasePath": "_content/Fiap.Web",
   "Mode": "Default",
   "ManifestType": "Build",
-  "ReferencedProjectsConfiguration": [],
+  "ReferencedProjectsConfiguration": [
+    {
+      "Identity": "D:\\MicroserviceConcept-FIAP22NET\\Fiap.Services.CursoAPI\\Fiap.Services.CursoAPI.csproj",
+      "Version": 2,
+      "Source": "Fiap.Services.CursoAPI",
+      "GetPublishAssetsTargets": "ComputeReferencedStaticWebAssetsPublishManifest;GetCurrentProjectPublishStaticWebAssetItems",
+      "AdditionalPublishProperties": "Configuration=Debug;Platform=AnyCPU",
+      "AdditionalPublishPropertiesToRemove": "WebPublishProfileFile;TargetFramework;RuntimeIdentifier",
+      "GetBuildAssetsTargets": "GetCurrentProjectBuildStaticWebAssetItems",
+      "AdditionalBuildProperties": "Configuration=Debug;Platform=AnyCPU",
+      "AdditionalBuildPropertiesToRemove": "WebPublishProfileFile;TargetFramework;RuntimeIdentifier"
+    }
+  ],
   "DiscoveryPatterns": [
     {
       "Name": "Fiap.Web\\wwwroot",
