@@ -3,6 +3,7 @@ using Fiap.Services.CursoAPI.DbContexts;
 using Fiap.Services.CursoAPI.Model;
 using Fiap.Services.CursoAPI.Model.Dto;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.ChangeTracking;
 
 namespace Fiap.Services.CursoAPI.Repository
 {
@@ -17,9 +18,9 @@ namespace Fiap.Services.CursoAPI.Repository
             _mapper = mapper;
         }
 
-        public async Task<CursoDto> CreateUpdateCurso(CursoDto CursoDto)
+        public async Task<CursoDTO> CreateUpdateCurso(CursoDTO cursoDto)
         {
-            Curso curso = _mapper.Map<CursoDto, Curso>(CursoDto);
+            Curso curso = _mapper.Map<CursoDTO, Curso>(cursoDto);
             if (curso.CursoId > 0)
             {
                 _db.Cursos.Update(curso);
@@ -29,7 +30,7 @@ namespace Fiap.Services.CursoAPI.Repository
                 _db.Cursos.Add(curso);
             }
             await _db.SaveChangesAsync();
-            return _mapper.Map<Curso, CursoDto>(curso);
+            return _mapper.Map<Curso, CursoDTO>(curso);
         }
 
         public async Task<bool> DeleteCurso(int cursoId)
@@ -51,16 +52,16 @@ namespace Fiap.Services.CursoAPI.Repository
             }
         }
 
-        public async Task<CursoDto> GetCursoById(int cursoId)
+        public async Task<CursoDTO> GetCursoById(int cursoId)
         {
             Curso curso = await _db.Cursos.Where(x => x.CursoId == cursoId).FirstAsync();
-            return _mapper.Map<CursoDto>(curso);
+            return _mapper.Map<CursoDTO>(curso);
         }
 
-        public async Task<IEnumerable<CursoDto>> GetCursos()
+        public async Task<IEnumerable<CursoDTO>> GetCursos()
         {
             List<Curso> cursoList = await _db.Cursos.ToListAsync();
-            return _mapper.Map<List<CursoDto>>(cursoList);
+            return _mapper.Map<List<CursoDTO>>(cursoList);
         }
     }
 }

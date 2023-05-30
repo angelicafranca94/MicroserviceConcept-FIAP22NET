@@ -1,5 +1,7 @@
 using Fiap.Web.Services;
 using Fiap.Web.Services.IServices;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Cors.Infrastructure;
 
 namespace Fiap.Web
 {
@@ -9,13 +11,18 @@ namespace Fiap.Web
         {
             var builder = WebApplication.CreateBuilder(args);
 
-
-            //HttpClient
+            // Http Client
             builder.Services.AddHttpClient<ICursoService, CursoService>();
+            builder.Services.AddHttpClient<ICarrinhoService, CarrinhoService>();
+            builder.Services.AddHttpClient<IPromocaoService, PromocaoService>();
             SD.CursoAPIBase = builder.Configuration["ServiceUrls:CursoAPI"];
+            SD.CarrinhoAPIBase = builder.Configuration["ServiceUrls:CarrinhoAPI"];
+            SD.PromocaoAPIBase = builder.Configuration["ServiceUrls:PromocaoAPI"];
 
-            //Add Dependency Injection
+            // Add Injeção de dependência
             builder.Services.AddScoped<ICursoService, CursoService>();
+            builder.Services.AddScoped<ICarrinhoService, CarrinhoService>();
+            builder.Services.AddScoped<IPromocaoService, PromocaoService>();
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
@@ -29,12 +36,13 @@ namespace Fiap.Web
                 .AddCookie("Cookies", c => c.ExpireTimeSpan = TimeSpan.FromMinutes(10))
                 .AddOpenIdConnect("oidc", options =>
                 {
-                    options.RequireHttpsMetadata = false;
-                    options.Authority = builder.Configuration["ServiceUrls:IdentityAPI"];
+                    options.Authority = builder.Configuration.GetSection("ServiceUrls").GetValue<string>("IdentityAPI");
                     options.GetClaimsFromUserInfoEndpoint = true;
                     options.ClientId = "fiap";
                     options.ClientSecret = "secret";
                     options.ResponseType = "code";
+                    options.ClaimActions.MapJsonKey("role", "role", "role");
+                    options.ClaimActions.MapJsonKey("sub", "sub", "sub");
                     options.TokenValidationParameters.NameClaimType = "name";
                     options.TokenValidationParameters.RoleClaimType = "role";
                     options.Scope.Add("fiap");

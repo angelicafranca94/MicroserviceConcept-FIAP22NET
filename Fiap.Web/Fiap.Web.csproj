@@ -13,8 +13,4 @@
     <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.30.1" />
   </ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\Fiap.Services.CursoAPI\Fiap.Services.CursoAPI.csproj" />
-  </ItemGroup>
-
 </Project>

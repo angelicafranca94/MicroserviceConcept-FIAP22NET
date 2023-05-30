@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "D:\\MicroserviceConcept-FIAP22NET\\Fiap.Services.CursoAPI\\Fiap.Services.CursoAPI.csproj": {}
+    "D:\\PRA SUBIR NO GIT\\MicroserviceConcept-FIAP22NET\\Fiap.Services.CursoAPI\\Fiap.Services.CursoAPI.csproj": {}
   },
   "projects": {
-    "D:\\MicroserviceConcept-FIAP22NET\\Fiap.Services.CursoAPI\\Fiap.Services.CursoAPI.csproj": {
+    "D:\\PRA SUBIR NO GIT\\MicroserviceConcept-FIAP22NET\\Fiap.Services.CursoAPI\\Fiap.Services.CursoAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\MicroserviceConcept-FIAP22NET\\Fiap.Services.CursoAPI\\Fiap.Services.CursoAPI.csproj",
+        "projectUniqueName": "D:\\PRA SUBIR NO GIT\\MicroserviceConcept-FIAP22NET\\Fiap.Services.CursoAPI\\Fiap.Services.CursoAPI.csproj",
         "projectName": "Fiap.Services.CursoAPI",
-        "projectPath": "D:\\MicroserviceConcept-FIAP22NET\\Fiap.Services.CursoAPI\\Fiap.Services.CursoAPI.csproj",
-        "packagesPath": "C:\\Users\\logonrmlocal\\.nuget\\packages\\",
-        "outputPath": "D:\\MicroserviceConcept-FIAP22NET\\Fiap.Services.CursoAPI\\obj\\",
+        "projectPath": "D:\\PRA SUBIR NO GIT\\MicroserviceConcept-FIAP22NET\\Fiap.Services.CursoAPI\\Fiap.Services.CursoAPI.csproj",
+        "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
+        "outputPath": "D:\\PRA SUBIR NO GIT\\MicroserviceConcept-FIAP22NET\\Fiap.Services.CursoAPI\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\logonrmlocal\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Administrator\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -58,17 +58,17 @@
             },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
-              "version": "[7.0.5, )"
+              "version": "[8.0.0-preview.3.23174.2, )"
             },
             "Microsoft.EntityFrameworkCore.Tools": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
-              "version": "[7.0.5, )"
+              "version": "[8.0.0-preview.3.23174.2, )"
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
-              "version": "[6.2.3, )"
+              "version": "[6.5.0, )"
             },
             "Swashbuckle.AspNetCore.Annotations": {
               "target": "Package",

@@ -6,12 +6,12 @@ namespace Fiap.Services.CursoAPI
 {
     public class MappingConfig
     {
-        public static MapperConfiguration RegistroMaps()
+        public static MapperConfiguration RegisterMaps()
         {
             var mappingConfig = new MapperConfiguration(config =>
             {
-                config.CreateMap<CursoDto, Curso>();
-                config.CreateMap<Curso, CursoDto>();
+                config.CreateMap<CursoDTO, Curso>();
+                config.CreateMap<Curso, CursoDTO>();
             });
 
             return mappingConfig;

@@ -1,8 +1,9 @@
-﻿namespace Fiap.Services.CursoAPI.Model.Dto
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace Fiap.Services.CursoAPI.Model.Dto
 {
-    public class CursoDto
+    public class CursoDTO
     {
-      
         public int CursoId { get; set; }
         public string Nome { get; set; }
         public double Preco { get; set; }

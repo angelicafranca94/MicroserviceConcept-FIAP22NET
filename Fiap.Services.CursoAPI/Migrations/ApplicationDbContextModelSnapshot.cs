@@ -16,7 +16,7 @@ namespace Fiap.Services.CursoAPI.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "7.0.5")
+                .HasAnnotation("ProductVersion", "8.0.0-preview.3.23174.2")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
@@ -56,29 +56,29 @@ namespace Fiap.Services.CursoAPI.Migrations
                         new
                         {
                             CursoId = 1,
-                            Categoria = "Treinamento",
+                            Categoria = "MBA",
                             Descricao = "Aprenda sobre a organização do projeto com Agile, compreenda a Lógica de Programação básica, codifique, realize a concepção das telas no Front-end, faça a conexão com <br/>banco de dados e Deploy.",
-                            ImagemURL = "https://storagecursosfiap.blob.core.windows.net/fiap/cursosgratuitos.png",
-                            Nome = "Mastering C#",
-                            Preco = 1500.0
+                            ImagemURL = "https://storagecursosfiap.blob.core.windows.net/fiap/mbafiap.png",
+                            Nome = "MBA FIAP",
+                            Preco = 2.5
                         },
                         new
                         {
                             CursoId = 2,
-                            Categoria = "Curta",
+                            Categoria = "Online",
                             Descricao = "Neste curso, vamos conhecer esta gigante economia de perto, entender o contexto que possibilitou seus grandes avanços, conhecer seus modelos de negócios digitais e nos <br/>aprofundar no sistema de inovação que está transformando o cenário mundial. Em um misto de teoria e prática, também vamos aproximar estes aprendizados à realidade brasileira, estudando<br/> cases reais e discutindo aplicações nos negócios de cada aluno.",
                             ImagemURL = "https://storagecursosfiap.blob.core.windows.net/fiap/fiapcursos.png",
-                            Nome = "Pós Graduação FIAP",
+                            Nome = "Cursos Online",
                             Preco = 1.599
                         },
                         new
                         {
                             CursoId = 3,
-                            Categoria = "Curta",
+                            Categoria = "Treinamento",
                             Descricao = "Neste curso, vamos conhecer esta gigante economia de perto, entender o contexto que possibilitou seus grandes avanços, conhecer seus modelos de negócios digitais e nos <br/>aprofundar no sistema de inovação que está transformando o cenário mundial. Em um misto de teoria e prática, também vamos aproximar estes aprendizados à realidade brasileira, estudando<br/> cases reais e discutindo aplicações nos negócios de cada aluno.",
-                            ImagemURL = "https://storagecursosfiap.blob.core.windows.net/fiap/mbafiap.png",
-                            Nome = ".NET Engenharia & Arquitetura",
-                            Preco = 1.599
+                            ImagemURL = "https://storagecursosfiap.blob.core.windows.net/fiap/cursosgratuitos.png",
+                            Nome = "Cursos gratuitos",
+                            Preco = 0.0
                         });
                 });
 #pragma warning restore 612, 618

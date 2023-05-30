@@ -1,8 +1,12 @@
-﻿using Fiap.Services.Identity.DbContexts;
+﻿using IdentityModel;
+using Fiap.Services.Identity.DbContexts;
 using Fiap.Services.Identity.Models;
-using IdentityModel;
 using Microsoft.AspNetCore.Identity;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Security.Claims;
+using System.Threading.Tasks;
 
 namespace Fiap.Services.Identity.Initializer
 {
@@ -12,7 +16,7 @@ namespace Fiap.Services.Identity.Initializer
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly RoleManager<IdentityRole> _roleManager;
 
-        public DbInitializer(ApplicationDbContext db, UserManager<ApplicationUser> userManager,
+        public DbInitializer(ApplicationDbContext db, UserManager<ApplicationUser> userManager, 
             RoleManager<IdentityRole> roleManager)
         {
             _db = db;
@@ -35,8 +39,8 @@ namespace Fiap.Services.Identity.Initializer
                 Email = "admin@fiap.com.br",
                 EmailConfirmed = true,
                 PhoneNumber = "111111111111",
-                FirstName = "Flavio",
-                LastName = "Admin"
+                FirstName="Flavio",
+                LastName="Admin"
             };
 
             _userManager.CreateAsync(adminUser, "Fiap123*").GetAwaiter().GetResult();

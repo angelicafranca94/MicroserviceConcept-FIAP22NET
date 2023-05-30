@@ -12,12 +12,12 @@ namespace Fiap.Web.Services
             _clientFactory = clientFactory;
         }
 
-        public async Task<T> CreateCursoAsync<T>(CursoViewModel CursoViewModel, string token)
+        public async Task<T> CreateCursoAsync<T>(CursoDTO cursoDto, string token)
         {
             return await this.SendAsync<T>(new ApiRequest()
             {
                 ApiType = SD.ApiType.POST,
-                Data = CursoViewModel,
+                Data = cursoDto,
                 Url = SD.CursoAPIBase + "/api/cursos",
                 AccessToken = token
             });
@@ -53,12 +53,12 @@ namespace Fiap.Web.Services
             });
         }
 
-        public async Task<T> UpdateCursoAsync<T>(CursoViewModel CursoViewModel, string token)
+        public async Task<T> UpdateCursoAsync<T>(CursoDTO cursoDto, string token)
         {
             return await this.SendAsync<T>(new ApiRequest()
             {
                 ApiType = SD.ApiType.PUT,
-                Data = CursoViewModel,
+                Data = cursoDto,
                 Url = SD.CursoAPIBase + "/api/cursos",
                 AccessToken = token
             });

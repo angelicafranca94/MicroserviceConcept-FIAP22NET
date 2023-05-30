@@ -118,6 +118,7 @@ namespace IdentityServerHost.Quickstart.UI
                 }
             }
 
+            // Configurar o modelo de autenticação
             if (ModelState.IsValid)
             {
 

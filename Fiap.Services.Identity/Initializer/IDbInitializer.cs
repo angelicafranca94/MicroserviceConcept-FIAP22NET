@@ -1,4 +1,9 @@
-﻿namespace Fiap.Services.Identity.Initializer
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+
+namespace Fiap.Services.Identity.Initializer
 {
     public interface IDbInitializer
     {

@@ -4,9 +4,9 @@ namespace Fiap.Services.CursoAPI.Repository
 {
     public interface ICursoRepository
     {
-        Task<IEnumerable<CursoDto>> GetCursos();
-        Task<CursoDto> GetCursoById(int cursoId);
-        Task<CursoDto> CreateUpdateCurso(CursoDto curso);
+        Task<IEnumerable<CursoDTO>> GetCursos();
+        Task<CursoDTO> GetCursoById(int cursoId);
+        Task<CursoDTO> CreateUpdateCurso(CursoDTO cursoDto);
         Task<bool> DeleteCurso(int cursoId);
     }
 }

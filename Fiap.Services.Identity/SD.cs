@@ -1,10 +1,11 @@
 ﻿using Duende.IdentityServer;
 using Duende.IdentityServer.Models;
+using System.Security.Principal;
 
 namespace Fiap.Services.Identity
 {
-    public class SD
-    {
+	public static class SD
+	{
 		public const string Admin = "Admin";
 		public const string Customer = "Customer";
 
@@ -39,8 +40,8 @@ namespace Fiap.Services.Identity
 					ClientId="fiap",
 					ClientSecrets= { new Secret("secret".Sha256())},
 					AllowedGrantTypes = GrantTypes.Code,
-					RedirectUris={ "http://localhost:5022/signin-oidc" },
-					PostLogoutRedirectUris={"http://localhost:5022/signout-callback-oidc" },
+					RedirectUris={ "https://localhost:7256/signin-oidc" },
+					PostLogoutRedirectUris={"https://localhost:7256/signout-callback-oidc" },
 					AllowedScopes=new List<string>
 					{
 						IdentityServerConstants.StandardScopes.OpenId,

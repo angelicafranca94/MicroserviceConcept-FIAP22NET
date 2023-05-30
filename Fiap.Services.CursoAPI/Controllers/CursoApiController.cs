@@ -1,8 +1,8 @@
-﻿
-using Fiap.Services.CursoAPI.Model.Dto;
+﻿using Fiap.Services.CursoAPI.Model.Dto;
 using Fiap.Services.CursoAPI.Repository;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.Data;
 
 namespace Fiap.Services.CursoAPI.Controllers
 {
@@ -17,13 +17,14 @@ namespace Fiap.Services.CursoAPI.Controllers
             _cursoRepository = cursoRepository;
             this._response = new ResponseDto();
         }
+        
         [HttpGet]
         public async Task<object> Get()
         {
             try
             {
-                IEnumerable<CursoDto> CursoDtos = await _cursoRepository.GetCursos();
-                _response.Result = CursoDtos;
+                IEnumerable<CursoDTO> cursoDtos = await _cursoRepository.GetCursos();
+                _response.Result = cursoDtos;
             }
             catch (Exception ex)
             {
@@ -40,8 +41,8 @@ namespace Fiap.Services.CursoAPI.Controllers
         {
             try
             {
-                CursoDto CursoDto = await _cursoRepository.GetCursoById(id);
-                _response.Result = CursoDto;
+                CursoDTO cursoDto = await _cursoRepository.GetCursoById(id);
+                _response.Result = cursoDto;
             }
             catch (Exception ex)
             {
@@ -55,11 +56,11 @@ namespace Fiap.Services.CursoAPI.Controllers
 
         [HttpPost]
         [Authorize]
-        public async Task<object> Post([FromBody] CursoDto CursoDto)
+        public async Task<object> Post([FromBody] CursoDTO cursoDto)
         {
             try
             {
-                CursoDto model = await _cursoRepository.CreateUpdateCurso(CursoDto);
+                CursoDTO model = await _cursoRepository.CreateUpdateCurso(cursoDto);
                 _response.Result = model;
             }
             catch (Exception ex)
@@ -73,12 +74,12 @@ namespace Fiap.Services.CursoAPI.Controllers
 
 
         [HttpPut]
-       [Authorize]
-        public async Task<object> Put([FromBody] CursoDto CursoDto)
+        [Authorize]
+        public async Task<object> Put([FromBody] CursoDTO cursoDto)
         {
             try
             {
-                CursoDto model = await _cursoRepository.CreateUpdateCurso(CursoDto);
+                CursoDTO model = await _cursoRepository.CreateUpdateCurso(cursoDto);
                 _response.Result = model;
             }
             catch (Exception ex)
@@ -91,7 +92,7 @@ namespace Fiap.Services.CursoAPI.Controllers
         }
 
         [HttpDelete]
-       [Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin")]
         [Route("{id}")]
         public async Task<object> Delete(int id)
         {
